@@ -178,3 +178,102 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+js files 
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import './App.css';
+import LoginPage from './LoginPage';
+
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  return (
+    <div className="App">
+      {!loggedIn ? (
+        <LoginPage setLoggedIn={setLoggedIn} />
+      ) : (
+        <h1>Welcome to the Dashboard!</h1>
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+
+const LoginPage = ({ setLoggedIn }) => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = () => {
+    if (userId === '' || password === '') {
+      setError('Please enter both User ID and Password.');
+      return;
+    }
+
+    // Simulated user authentication using local storage
+    const storedUserId = localStorage.getItem('userId');
+    const storedPassword = localStorage.getItem('password');
+
+    if (userId === storedUserId && password === storedPassword) {
+      setLoggedIn(true);
+    } else {
+      setError('Invalid credentials. Please try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
+
+export default LoginPage;
