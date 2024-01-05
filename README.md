@@ -122,18 +122,14 @@ button:hover {
 
 
 
-
-
-
-
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string>('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     // Basic validation
@@ -147,7 +143,7 @@ const Login: React.FC = () => {
     const storedPassword = localStorage.getItem('password');
 
     if (userId === storedUserId && password === storedPassword) {
-      history.push('/comments');
+      navigate('/comments');
     } else {
       setError('Invalid credentials. Please try again.');
     }
