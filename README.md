@@ -55,3 +55,62 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+
+
+
+
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
