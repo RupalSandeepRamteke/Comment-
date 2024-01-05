@@ -114,3 +114,64 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
+const Login: React.FC = () => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string>('');
+  const history = useHistory();
+
+  const handleLogin = () => {
+    // Basic validation
+    if (userId.trim() === '' || password.trim() === '') {
+      setError('Please enter both User ID and Password.');
+      return;
+    }
+
+    // Simulated user authentication using local browser storage
+    const storedUserId = localStorage.getItem('userId');
+    const storedPassword = localStorage.getItem('password');
+
+    if (userId === storedUserId && password === storedPassword) {
+      history.push('/comments');
+    } else {
+      setError('Invalid credentials. Please try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
+
+export default Login;
