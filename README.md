@@ -169,3 +169,67 @@ const Login: React.FC = () => {
 };
 
 export default Login;
+..................................
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Array of user credentials
+const userCredentials = [
+  {
+    userId: 'user1',
+    password: 'password1'
+  },
+  {
+    userId: 'user2',
+    password: 'password2'
+  },
+  // Add more user objects as needed
+];
+
+const Login: React.FC = () => {
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string>('');
+
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    // Basic validation
+    if (userId.trim() === '' || password.trim() === '') {
+      setError('Please enter both User ID and Password.');
+      return;
+    }
+
+    // Check user credentials from the userCredentials array
+    const user = userCredentials.find(user => user.userId === userId);
+
+    if (user && user.password === password) {
+      navigate('/comments');
+    } else {
+      setError('Invalid credentials. Please try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
+
+export default Login;
