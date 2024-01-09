@@ -1,3 +1,35 @@
+
+* {
+
+margin: 0;
+
+padding: 0;
+
+text-decoration: none;
+
+}
+
+a {
+
+color: rgb(51, 204, 51);
+
+}
+
+#header {
+
+background: black;
+
+}
+
+#footer {
+
+background: yellow;
+
+}
+
+
+
+
 import React from 'react';
 import './App.css';
 import LoginPage from './components/LoginPage';
@@ -232,4 +264,17 @@ const Login: React.FC = () => {
   );
 };
 
+
 export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
