@@ -1,4 +1,34 @@
+<div id="header">
 
+<a href="">HOME</a>
+
+<a href="">ABOUT</a>
+
+<a href="">COURSES</a>
+
+<a href="">CONTACT US</a>
+
+<button>Sign up</button>
+
+</div>
+
+<div id="main">
+
+<img src="https://codeyogi.io/logo.png" alt="logo" />
+
+</div>
+
+<div id="footer">
+
+<a href="">FACEBOOK</a>
+
+<a href="">INSTAGRAM</a>
+
+<a href="">LINKEDIN</a>
+
+<a href="">TWITTER</a>
+
+</div>
 * {
 
 margin: 0;
